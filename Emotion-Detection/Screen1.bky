@@ -1,0 +1,111 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id="=Tl0cG=7$/JbP+1{XLh*" x="93" y="50">
+    <mutation component_type="Button" instance_name="camera_btn" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">camera_btn</field>
+    <statement name="DO">
+      <block type="component_method" id="k5AO*w:?0c82@d]gIbmF">
+        <mutation component_type="Camera" method_name="TakePicture" is_generic="false" instance_name="Camera1"></mutation>
+        <field name="COMPONENT_SELECTOR">Camera1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="ez(.1lwPwd@P#.A:MunP" x="640" y="45">
+    <mutation component_type="ImagePicker" instance_name="gallary_btn" event_name="AfterPicking"></mutation>
+    <field name="COMPONENT_SELECTOR">gallary_btn</field>
+    <statement name="DO">
+      <block type="component_method" id="|F4uBx^V1F+Knj@[Gl5+">
+        <mutation component_type="EmotionRecognizer" method_name="postImage" is_generic="false" instance_name="Emotion_Recognizer1"></mutation>
+        <field name="COMPONENT_SELECTOR">Emotion_Recognizer1</field>
+        <value name="ARG0">
+          <block type="component_set_get" id="U6k@cc_$gKp9b;IQelZ3">
+            <mutation component_type="ImagePicker" set_or_get="get" property_name="Selection" is_generic="false" instance_name="gallary_btn"></mutation>
+            <field name="COMPONENT_SELECTOR">gallary_btn</field>
+            <field name="PROP">Selection</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="G5(6UUE,7*bS)1umN;nc">
+            <mutation component_type="Button" set_or_get="set" property_name="Image" is_generic="false" instance_name="camera_btn"></mutation>
+            <field name="COMPONENT_SELECTOR">camera_btn</field>
+            <field name="PROP">Image</field>
+            <value name="VALUE">
+              <block type="component_set_get" id="2O(L6W8|,E89dswzc;G:">
+                <mutation component_type="ImagePicker" set_or_get="get" property_name="Selection" is_generic="false" instance_name="gallary_btn"></mutation>
+                <field name="COMPONENT_SELECTOR">gallary_btn</field>
+                <field name="PROP">Selection</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="9u%`_)*U8yh/x0m_Bq}s" x="94" y="150">
+    <mutation component_type="Camera" instance_name="Camera1" event_name="AfterPicture"></mutation>
+    <field name="COMPONENT_SELECTOR">Camera1</field>
+    <statement name="DO">
+      <block type="component_method" id="v_8}}V!ZT`8jyK8`x{/)">
+        <mutation component_type="EmotionRecognizer" method_name="postImage" is_generic="false" instance_name="Emotion_Recognizer1"></mutation>
+        <field name="COMPONENT_SELECTOR">Emotion_Recognizer1</field>
+        <value name="ARG0">
+          <block type="lexical_variable_get" id="oJ](83[{6%.z]|2P:A%2">
+            <mutation>
+              <eventparam name="image"></eventparam>
+            </mutation>
+            <field name="VAR">image</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="AdgQ`Lpq:eWdQpt^Y7.+">
+            <mutation component_type="Button" set_or_get="set" property_name="Image" is_generic="false" instance_name="camera_btn"></mutation>
+            <field name="COMPONENT_SELECTOR">camera_btn</field>
+            <field name="PROP">Image</field>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="`9t.eS;:e_{2c-J!kd9@">
+                <mutation>
+                  <eventparam name="image"></eventparam>
+                </mutation>
+                <field name="VAR">image</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="7zR!OS`Y0Hzlns{g*rWr" x="94" y="311">
+    <mutation component_type="EmotionRecognizer" instance_name="Emotion_Recognizer1" event_name="GotResponse"></mutation>
+    <field name="COMPONENT_SELECTOR">Emotion_Recognizer1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="02%|`v:xwcF1!zw|.W0I">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="description_label"></mutation>
+        <field name="COMPONENT_SELECTOR">description_label</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="cqymv5J#D{*yVy6yHaJr">
+            <mutation>
+              <eventparam name="mostLikelyEmotion"></eventparam>
+            </mutation>
+            <field name="VAR">Most Likely Emotion</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="Cp#agYNuyqFLA3=VJ]wd">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="emotion_score"></mutation>
+            <field name="COMPONENT_SELECTOR">emotion_score</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="lexical_variable_get" id="V$Hh9^PS)|H#QvtL;F|G">
+                <mutation>
+                  <eventparam name="mostLikelyEmotionScore"></eventparam>
+                </mutation>
+                <field name="VAR">Most Likely Emotion Score</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="160" language-version="20"></yacodeblocks>
+</xml>
