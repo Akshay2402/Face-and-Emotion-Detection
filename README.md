@@ -1,5 +1,8 @@
 # Face-and-Emotion-Detection
-What does the Repo Contains.
+
+##### Copy paste the .apk files in your phone and run, Enjoy.
+
+What does the Repo Contains?
 
  * Object Detection and using text to speech(Helping people who cannot see)
  * Emotion Detection(Whether a person is happy or sad or suprised, ...)
