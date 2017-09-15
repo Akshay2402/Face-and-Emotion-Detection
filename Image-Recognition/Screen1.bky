@@ -1,0 +1,144 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="component_event" id=");Yxkh^{=HDHRgOi`MjV" x="91" y="-23">
+    <mutation component_type="Button" instance_name="camera_btn" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">camera_btn</field>
+    <statement name="DO">
+      <block type="component_method" id="@~PNazb-pv7R51u6Afa4">
+        <mutation component_type="Camera" method_name="TakePicture" is_generic="false" instance_name="Camera1"></mutation>
+        <field name="COMPONENT_SELECTOR">Camera1</field>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="D7@GuufVi-%bxyO2dz%O" x="590" y="15">
+    <mutation component_type="ImagePicker" instance_name="gallary_btn" event_name="AfterPicking"></mutation>
+    <field name="COMPONENT_SELECTOR">gallary_btn</field>
+    <statement name="DO">
+      <block type="component_set_get" id="pK$/e}Y#9l.Ycc-%aVTz">
+        <mutation component_type="Image" set_or_get="set" property_name="Picture" is_generic="false" instance_name="preview"></mutation>
+        <field name="COMPONENT_SELECTOR">preview</field>
+        <field name="PROP">Picture</field>
+        <value name="VALUE">
+          <block type="component_set_get" id="fMR:;JVCH#nF-nj6883{">
+            <mutation component_type="ImagePicker" set_or_get="get" property_name="Selection" is_generic="false" instance_name="gallary_btn"></mutation>
+            <field name="COMPONENT_SELECTOR">gallary_btn</field>
+            <field name="PROP">Selection</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="a#YmeirIc#Qk]f}nW*#`">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="description_label"></mutation>
+            <field name="COMPONENT_SELECTOR">description_label</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="{[f}@Rp~L3Pqmcl^z,1b">
+                <field name="TEXT">Hold on..</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="jUB]`NvTm53e|[BJc*dm">
+                <mutation component_type="ImageRecognizer" method_name="postImage" is_generic="false" instance_name="Image_Recognizer1"></mutation>
+                <field name="COMPONENT_SELECTOR">Image_Recognizer1</field>
+                <value name="ARG0">
+                  <block type="component_set_get" id="R*uzg4k?Cc6klEH?nv+K">
+                    <mutation component_type="ImagePicker" set_or_get="get" property_name="Selection" is_generic="false" instance_name="gallary_btn"></mutation>
+                    <field name="COMPONENT_SELECTOR">gallary_btn</field>
+                    <field name="PROP">Selection</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="!=AER9!e68Zxi@6dD}2M" x="91" y="57">
+    <mutation component_type="Camera" instance_name="Camera1" event_name="AfterPicture"></mutation>
+    <field name="COMPONENT_SELECTOR">Camera1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="3$y6zR{el/~}jCdR$F8?">
+        <mutation component_type="Image" set_or_get="set" property_name="Picture" is_generic="false" instance_name="preview"></mutation>
+        <field name="COMPONENT_SELECTOR">preview</field>
+        <field name="PROP">Picture</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="IuJ!19,(d(m8pzV)jtn{">
+            <mutation>
+              <eventparam name="image"></eventparam>
+            </mutation>
+            <field name="VAR">image</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="NbVwhlq{_b_?kOL0h4E6">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="description_label"></mutation>
+            <field name="COMPONENT_SELECTOR">description_label</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text" id="m:[JTs1$7#rM6xq!tl=C">
+                <field name="TEXT">Hold on..</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="$h]{m]{.h8E-ULB8GSq+">
+                <mutation component_type="ImageRecognizer" method_name="postImage" is_generic="false" instance_name="Image_Recognizer1"></mutation>
+                <field name="COMPONENT_SELECTOR">Image_Recognizer1</field>
+                <value name="ARG0">
+                  <block type="lexical_variable_get" id="Dt)}96{iUN{?jPU=^l7k">
+                    <mutation>
+                      <eventparam name="image"></eventparam>
+                    </mutation>
+                    <field name="VAR">image</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="component_event" id="kJLny!s/KkJiD@-B27wa" x="90" y="229">
+    <mutation component_type="ImageRecognizer" instance_name="Image_Recognizer1" event_name="GotResponse"></mutation>
+    <field name="COMPONENT_SELECTOR">Image_Recognizer1</field>
+    <statement name="DO">
+      <block type="component_set_get" id=")+E[AupE5_we$.kc.uq{">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="description_label"></mutation>
+        <field name="COMPONENT_SELECTOR">description_label</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="lexical_variable_get" id="z@$=%LmQD[VRY^F02%26">
+            <mutation>
+              <eventparam name="description"></eventparam>
+            </mutation>
+            <field name="VAR">Description</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="?9/KnL=}/Az%rD(t6c,T">
+            <mutation component_type="TextToSpeech" method_name="Speak" is_generic="false" instance_name="Text-to-Speech1"></mutation>
+            <field name="COMPONENT_SELECTOR">Text-to-Speech1</field>
+            <value name="ARG0">
+              <block type="text_join" id="__uk:p5eiI#V@#s0AYfl">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="(M9]nc,_8uXKh4f~)|16">
+                    <field name="TEXT">I think it is</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="71a_#)ZUz:W/{:tz(2zk">
+                    <mutation>
+                      <eventparam name="description"></eventparam>
+                    </mutation>
+                    <field name="VAR">Description</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <yacodeblocks ya-version="160" language-version="20"></yacodeblocks>
+</xml>
